@@ -1,8 +1,11 @@
-import  ReactDOM  from 'react-dom';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 const greetingMessage = <div>Hello React!</div>;
 
-ReactDOM.render(greetingMessage, document.getElementById('root') );
+console.log("Hello React!!");
+
+//ReactDOM.render(greetingMessage, document.getElementById('root') );
+
+ReactDOM.createRoot(document.getElementById('root')).render(greetingMessage);
 
