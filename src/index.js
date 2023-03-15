@@ -1,13 +1,13 @@
-//import ReactDOM from 'react-dom';
-import ReactDOM from 'react-dom/client';
-// import bootstrap css resource
-import "bootstrap/dist/css/bootstrap.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import DataTable from './DataTable';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const greetingMessage = <div>Hello React!</div>;
-
-console.log("Hello React!!");
-
-//ReactDOM.render(greetingMessage, document.getElementById('root') );
-
-ReactDOM.createRoot(document.getElementById('root')).render(greetingMessage);
-
+ReactDOM.createRoot(
+  document.getElementById('root')
+).render(
+  <React.StrictMode>
+    <DataTable />
+  </React.StrictMode>
+);
