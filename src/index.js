@@ -1,5 +1,7 @@
 //import ReactDOM from 'react-dom';
 import ReactDOM from 'react-dom/client';
+// import bootstrap css resource
+import "bootstrap/dist/css/bootstrap.css";
 
 const greetingMessage = <div>Hello React!</div>;
 
