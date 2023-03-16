@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import DataTable from './DataTable';
-import 'bootstrap/dist/css/bootstrap.css';
+import { createRoot } from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.createRoot(
-  document.getElementById('root')
-).render(
+function AppClass() {
+  return <h1>Student List!</h1>;
+}
+
+const rootElement = document.getElementById('root');
+
+createRoot(rootElement).render(
   <React.StrictMode>
-    <DataTable />
+    <AppClass />
   </React.StrictMode>
 );
+

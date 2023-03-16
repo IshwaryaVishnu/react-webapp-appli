@@ -1,9 +1,9 @@
 // 1. Create DataTable.js file
 // DataTable.js
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 
 // 2. Define studentList using useState Hook function
+
 const DataTable = () => {
   const [studentList, setStudentList] = useState([
     { id: 1, firstName: 'Ishu', lastName: 'Sankar', age: 31, birthdate: '1991-09-27', country: 'India', city: 'TamilNadu' },
@@ -11,8 +11,8 @@ const DataTable = () => {
     { id: 3, firstName: 'Athithi', lastName: 'Sidharth', age: 31, birthdate: '1991-04-23', country: 'India', city: 'TamilNadu' },
   ]);
 
-  // 4. Define TableHeader component
-  const TableHeader = () => {
+   // Define a TableHeader component that returns table header information
+   const TableHeader = () => {
     return (
       <thead>
         <tr>
@@ -23,32 +23,26 @@ const DataTable = () => {
           <th>Birthdate</th>
           <th>Country</th>
           <th>City</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
     );
   };
 
-  // 5. Define TableAction component
+  // Define a TableAction component with props that returns a HTML button
   const TableAction = ({ id }) => {
-    const handleClick = () => {
-      // Remove student from studentList
-      const filteredList = studentList.filter(student => student.id !== id);
-      setStudentList(filteredList);
+    const handleDelete = () => {
+      setStudentList(studentList.filter((student) => student.id !== id));
     };
 
-    return (
-      <td>
-        <button onClick={handleClick}>Delete</button>
-      </td>
-    );
+    return <button onClick={handleDelete}>Delete</button>;
   };
 
- // 6. Define TableRow component
- const TableRow = ({ studentList }) => {
+  // Define a TableRow component that takes studentList as props and returns table body using map function in JavaScript
+  const TableRow = ({ studentList }) => {
     return (
       <tbody>
-        {studentList.map(student => (
+        {studentList.map((student) => (
           <tr key={student.id}>
             <td>{student.id}</td>
             <td>{student.firstName}</td>
@@ -57,14 +51,15 @@ const DataTable = () => {
             <td>{student.birthdate}</td>
             <td>{student.country}</td>
             <td>{student.city}</td>
-            <TableAction id={student.id} />
+            <td>
+              <TableAction id={student.id} />
+            </td>
           </tr>
         ))}
       </tbody>
     );
   };
-
-  // Render table
+  // Render the DataTable component with the TableHeader and TableRow components
   return (
     <table>
       <TableHeader />
@@ -72,7 +67,4 @@ const DataTable = () => {
     </table>
   );
 };
-
-// Render DataTable component to the DOM
-const root = document.getElementById('root');
-ReactDOM.render(<DataTable />, root);
+export default DataTable;
