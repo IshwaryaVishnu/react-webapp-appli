@@ -1,9 +1,8 @@
-// 1. Create DataTable.js file
+// Create DataTable.js file
 // DataTable.js
 import React, { useState } from 'react';
 
-// 2. Define studentList using useState Hook function
-
+// Define studentList using useState Hook function
 const DataTable = () => {
   const [studentList, setStudentList] = useState([
     { id: 1, firstName: 'Ishu', lastName: 'Sankar', age: 31, birthdate: '1991-09-27', country: 'India', city: 'TamilNadu' },
@@ -11,11 +10,11 @@ const DataTable = () => {
     { id: 3, firstName: 'Athithi', lastName: 'Sidharth', age: 31, birthdate: '1991-04-23', country: 'India', city: 'TamilNadu' },
   ]);
 
-   // Define a TableHeader component that returns table header information
-   const TableHeader = () => {
+  // Define a TableHeader component that returns table header information
+  const TableHeader = () => {
     return (
       <thead>
-        <tr>
+        <tr className='table-primary'>
           <th>ID</th>
           <th>First Name</th>
           <th>Last Name</th>
@@ -28,8 +27,7 @@ const DataTable = () => {
       </thead>
     );
   };
-
-  // Define a TableAction component with props that returns a HTML button
+// Define a TableAction component with props that returns a HTML button
   const TableAction = ({ id }) => {
     const handleDelete = () => {
       setStudentList(studentList.filter((student) => student.id !== id));
@@ -59,12 +57,13 @@ const DataTable = () => {
       </tbody>
     );
   };
-  // Render the DataTable component with the TableHeader and TableRow components
+ // Render the DataTable component with the TableHeader and TableRow components
   return (
-    <table>
+    <table className='table table-striped'>
       <TableHeader />
       <TableRow studentList={studentList} />
     </table>
   );
 };
+
 export default DataTable;
